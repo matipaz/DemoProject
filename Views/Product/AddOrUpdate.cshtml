@@ -1,0 +1,68 @@
+﻿@model DemoProject.Models.ProductViewModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>Product</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        @using (Html.BeginForm("AddOrUpdate", "Product", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+        {
+            @Html.HiddenFor(m => m.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Name, new { @class = "form-label" })
+            @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.ProductType, new { @class = "form-label" })
+
+            @Html.TextBoxFor(m => m.ProductType, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.ProductType, "", new { @class = "text-danger" })
+
+
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Brand, new { @class = "form-label" })
+
+            @Html.TextBoxFor(m => m.Brand, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Brand, "", new { @class = "text-danger" })
+
+
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Price, new { @class = "form-label" })
+
+            @Html.TextBoxFor(m => m.Price, new { type = "number", @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Price, "", new { @class = "text-danger" })
+
+
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.Stock, new { @class = "form-label" })
+            @Html.TextBoxFor(m => m.Stock, new { type = "number", @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Stock, "", new { @class = "text-danger" })
+
+
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Save</button>
+
+        </div>
+    }
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

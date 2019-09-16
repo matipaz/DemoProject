@@ -59,11 +59,11 @@ namespace DemoProject
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
 
-                routes.MapRoute(
-    "Default",
-    "{controller}/{action}/{id}",
-    new { controller = "Product", action = "Index", id = "" }
-);
+//                routes.MapRoute(
+//    "Default",
+//    "{controller}/{action}/{id}",
+//    new { controller = "Product", action = "Index", id = "" }
+//);
 
             });
         }
